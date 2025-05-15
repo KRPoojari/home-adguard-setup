@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+
+# Ansible
+*.retry
+
+# Certbot/NGINX
+docker/nginx/certbot/conf/*
+docker/nginx/certbot/www/*
+
+# Misc
+.env
+*.log

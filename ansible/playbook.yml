@@ -1,0 +1,21 @@
+
+- name: Deploy Infra Monitoring Stack
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+        update_cache: yes
+
+    - name: Copy docker files
+      copy:
+        src: ../docker/
+        dest: /opt/infra-monitoring/
+
+    - name: Start stack
+      shell: docker-compose up -d
+      args:
+        chdir: /opt/infra-monitoring
